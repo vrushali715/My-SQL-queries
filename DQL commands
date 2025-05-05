@@ -1,0 +1,55 @@
+se aug_24;
+# DQL (Select Query)
+select * from superstore;
+select Country from superstore;
+select distinct country from superstore;
+
+select country, segment from superstore;
+select distinct country, segment from superstore;
+select country,profit, sales from superstore;
+##sort (order by)
+select distinct country from superstore order by country asc;
+select distinct country from superstore order by country desc;
+select distinct country, sales from superstore order by sales desc;
+select distinct country, sales from superstore order by sales asc;
+select distinct country from superstore order by country asc;
+select distinct country, sales from superstore
+ order by country asc, sales desc;
+select distinct country, segment,category,sub_category,Sales from superstore
+order by country asc,segment asc,sub_category asc,sales desc;
+select distinct country,segment,category,sub_category,sales from superstore
+order by 1,2,3,4,5 desc;
+
+## Where Clause = filter the data
+
+select distinct country from superstore
+where country = "India";
+select distinct country,segment from superstore
+where segment = "Consumer";
+select country,sales from superstore
+where sales >500 
+order by sales asc;
+# country India & Norway
+select distinct country from superstore
+where country = "India" or country = "norway";
+ ## Country india 
+ 
+ 
+ 
+ # Country = germany & sales>500
+ where country= "germany" and sales>500
+ order by sales asc;
+  
+  #country = India and sales = 500
+  select country, sales from superstore
+  where country = "India" and sales = 500;
+  
+  ## country germany,norway and sales<500
+  select country , sales from superstore
+  where country in ("germany","norway") and sales <500
+  order by sales desc;
+  
+  select country, sales from superstore 
+  where (country = "germany" and sales <500) or
+(country = "norway" and sales<500)
+  order by sales desc;
