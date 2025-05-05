@@ -1,0 +1,38 @@
+use aug_24;
+Create table sample (sno int, sname char(10),City char(50));
+show tables;
+desc sample;
+select * from sample;
+#DDL (CREATE, ALTER, DROP, TRUNCATE, COMMENT, RENAME)  #DML(INSERT, UPDATE, DELETE, SELECT, MERGE)
+  
+insert into sample values(1,"Jay","Banglore"),(2,"Vijay","Chennai"),(3,"Ajay","Pune"),(4,"Kumar","Banglore");
+alter table sample add column age tinyint;
+alter table sample add column Sales int;
+desc samples;
+select * from sample;
+insert into sample values(5,"Rajesh","Pune",25,5000);
+alter table sample modify column age int;
+insert into sample values(6,"Salman","Mumbai",50,7000);
+alter table sample change column age qty int;
+insert into sample values (7,"Amir","Mumbai",250,6000);
+alter table sample drop column qty;
+desc sample;
+alter table sample rename to example;
+select * from example;
+set sql_safe_updates = 0;
+update sample set sales = 5000 where city = "Pune";
+update sample set sales = 7000 where sno =3;
+
+delete from sample where sales =0;
+select * from sample;
+insert into sample values(3,"Ajay","Mumbai",5000);
+#delete record of pune >6000;
+insert into sample values(3,"Jay","pune",7500);
+delete from sample where sname = "Ajay" and city = "Pune";
+
+##delete records of pune & chennai
+delete from sample where city= "pune" or city "chennai";
+delete from sample; #row level
+truncate sample; #Table level
+Select * from Employees_Data;
+select * from superstore;
